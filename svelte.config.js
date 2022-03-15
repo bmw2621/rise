@@ -1,5 +1,6 @@
 import adapter from '@sveltejs/adapter-auto';
 import preprocess from 'svelte-preprocess';
+import pkg from './package.json';
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
@@ -11,11 +12,7 @@ const config = {
 		adapter: adapter(),
 		vite: {
 			ssr: {
-				noExternal: [
-					'@fortawesom/free-brands-svg-icons',
-					'@fortawesom/free-regular-svg-icons',
-					'@fortawesom/free-solid-svg-icons'
-				]
+				noExternal: Object.keys(pkg.dependencies || {})
 			}
 		}
 	}
