@@ -33,6 +33,11 @@
 	};
 </script>
 
+<svelte:head>
+	<link rel="preload" as="image" href="/heroOverlay.png" />
+	<link rel="preload" as="image" href="/hero.jpg" />
+</svelte:head>
+
 <header>
 	<a
 		href="/"
