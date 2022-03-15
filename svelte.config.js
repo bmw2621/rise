@@ -7,18 +7,17 @@ const config = {
 	// Consult https://github.com/sveltejs/svelte-preprocess
 	// for more information about preprocessors
 	preprocess: preprocess(),
-
 	kit: {
 		adapter: adapter(),
 		vite: {
-			experimental: {
-				prebundleSvelteLibraries: true
-			},
 			resolve: {
 				alias: {
 					$lib: path.resolve('./src/lib'),
 					$comp: path.resolve('./src/components')
 				}
+			},
+			ssr: {
+				noExternal: ['@fortawesome/free-solid-svg-icons', '@fortawesome/free-brands-svg-icons']
 			}
 		}
 	}
