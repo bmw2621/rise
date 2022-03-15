@@ -164,7 +164,7 @@
 		height: fit-content;
 		max-height: 0px;
 		position: absolute;
-		top: 150px;
+		top: 100px;
 		transition: max-height 250ms ease-in-out;
 	}
 
