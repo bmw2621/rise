@@ -1,6 +1,6 @@
 import adapter from '@sveltejs/adapter-auto';
+import path from 'path';
 import preprocess from 'svelte-preprocess';
-import pkg from './package.json';
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
@@ -11,8 +11,14 @@ const config = {
 	kit: {
 		adapter: adapter(),
 		vite: {
-			ssr: {
-				noExternal: Object.keys(pkg.dependencies || {})
+			experimental: {
+				prebundleSvelteLibraries: true
+			},
+			resolve: {
+				alias: {
+					$lib: path.resolve('./src/lib'),
+					$comp: path.resolve('./src/components')
+				}
 			}
 		}
 	}
